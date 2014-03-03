@@ -43,19 +43,21 @@
     <div class="container">
         <div class="row">
             <h4>Your Cart</h4>
-            <table class="table">
+            <table class="table table-bordered">
                 <tr>
                     <th>Item Name</th>
+                    <th>Image</th>
                     <th>Quantity</th>
                     <th>Unit Price</th>
                     <th>Total Price</th>
                     <th>Action</th>
                 </tr>
-                <tr ng-repeat="item in cart">
-                    <td>{{item.name}}</td>
+                <tr ng-repeat="item in cart">                    
+                    <td>{{item.dress.name}}</td>
+                    <td class="img-row"><img src='{{item.dress.image}}' alt="{{item.dress.name}}" class="img-responsive"/></td>
                     <td><input type="text" ng-model="item.quantity" size="5"/></td>
-                    <td>{{item.price | currency}}</td>
-                    <td>{{item.quantity * item.price | currency}}</td>
+                    <td>{{item.dress.price | currency}}</td>
+                    <td>{{item.quantity * item.dress.price | currency}}</td>
                     <td><a href="#" ng-click="removeFromCart(item)">Remove</a></td>
                 </tr>
             </table>

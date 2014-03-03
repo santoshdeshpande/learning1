@@ -3,13 +3,13 @@ function CartCtrl($scope) {
     $scope.cart = [];
 
     $scope.menClothing = [
-        {name: 'T-Shirt', price: '20'},
-        {name: 'Shirt', price: '15'},
-        {name: 'Polo', price: '12'}
+        {name: 'T-Shirt', price: '20', image: 'images/tshirt.jpg'},
+        {name: 'Shirt', price: '15', image: 'images/shirt.jpg'},
+        {name: 'Polo', price: '12', image:'images/polo.jpg'}
     ];
 
     $scope.womenClothing = [
-        {name: 'Top', price: '23'},
+        {name: 'Top', price: '23', image: 'images/top.jpg'},
         {name: 'Tunic', price: '10'},
         {name: 'Kurta', price: '10'}
     ];
@@ -24,7 +24,7 @@ function CartCtrl($scope) {
         });
 
         if(hasItem == false) {
-            var item = {name:dress.name, quantity:1,price:dress.price, dress:dress};
+            var item = {quantity:1,dress:dress};
             $scope.cart.push(item);
         }
     }

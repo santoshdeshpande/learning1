@@ -2,3 +2,8 @@
     text-decoration: line-through;
     color: grey;
 }
+
+.img-row {
+    width: 100px;
+    height: 100px;
+}
