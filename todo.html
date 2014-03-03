@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>ToDo App based on angularjs website</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="css/todo.css"/>
+</head>
+<body>
+
+<div class="container">
+    <div class="row well">
+        <h4>This is the same tutorial as angularjs tutorial for todo as a learning</h4>
+    </div>
+
+    <div class="row">
+        <h2>To Do List</h2>
+
+        <div ng-controller="ToDoCtrl">
+            <span>{{remaining()}} of {{todos.length}} remaining</span> [ <a href="#" ng-click="archive()"> Archive</a> ]
+            <ul class="list-unstyled">
+                <li ng-repeat="todo in todos">
+                    <input type="checkbox" ng-model="todo.done"/>
+                    <span class="done-{{todo.done}}">{{todo.text}}</span>
+                </li>
+            </ul>
+
+            <form ng-submit="addToDo()">
+                <input type="text" ng-model="todoText" size="30" placeholder="add new todo here"/>
+                <input type="submit" class="btn btn-primary" value="Add"/>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="js/todo.js"></script>
+
+</body>
+</html>

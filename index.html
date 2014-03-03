@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>Demo App</title>
+</head>
+<body ng-controller="MainCtrl">
+    <h3>Data Binding</h3>
+    <input type="name" ng-model="name"/>
+    <h2>Hello, {{name}}!</h2>
+
+    <h3>List of all the English News Channels in India</h3>
+    <ul>
+        <li ng-repeat="channel in channels">{{channel}}</li>
+    </ul>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
