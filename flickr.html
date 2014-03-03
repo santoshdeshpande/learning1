@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>Most Recent Flickr Photos</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="bower_components/ngprogress/ngProgress.css"/>
+    <link rel="stylesheet" href="css/todo.css"/>
+</head>
+<body ng-app="flickrapp">
+
+<div class="container" ng-controller="FlickrCtrl">
+    <div class="row">
+        <h1>List of Recent Photos [<a href="#" ng-click="refresh()">Refresh</a>]</h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-md-4 col-lg-4 photo" ng-repeat="photo in photos" ng-animate="'animate'">
+            <div class="thumbnail">
+            <a href="#">
+                <img ng-src="http://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_q.jpg" alt=""/>
+            </a>
+            <div class="caption">
+                {{photo.title}}
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+<script src="bower_components/ngprogress/build/ngProgress.min.js"></script>
+<script src="js/flickr.js"></script>
+
+</body>
+</html>
