@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>ToDo App based on angularjs website</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="css/todo.css"/>
+</head>
+<body>
+
+<div id="mainContainer" ng-controller="CartCtrl">
+    <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Shopping Cart</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Add Item <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" ng-repeat="dress in menClothing"
+                                   ng-click="addToCart(dress)">{{dress.name}}</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header">Women</li>
+                            <li><a href="#" ng-repeat="dress in womenClothing" ng-click="addToCart(dress)">{{dress.name}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+        <!--/.container-fluid -->
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <h4>Your Cart</h4>
+            <table class="table">
+                <tr>
+                    <th>Item Name</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total Price</th>
+                    <th>Action</th>
+                </tr>
+                <tr ng-repeat="item in cart">
+                    <td>{{item.name}}</td>
+                    <td><input type="text" ng-model="item.quantity" size="5"/></td>
+                    <td>{{item.price | currency}}</td>
+                    <td>{{item.quantity * item.price | currency}}</td>
+                    <td><a href="#" ng-click="removeFromCart(item)">Remove</a></td>
+                </tr>
+            </table>
+        </div>
+        <div class="row">
+            <h4>Final Price: {{totalPrice() | currency}}</h4>
+        </div>
+    </div>
+
+</div>
+
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>
